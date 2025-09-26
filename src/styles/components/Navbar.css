@@ -1,0 +1,59 @@
+.navbar{
+    width: 70%;
+    background-color: #12a6d8;
+    margin: 20px auto;
+    padding: 20px;
+    border: solid 2px #d1f8ff;
+    border-radius: 12px;
+    position: sticky;
+    top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    box-shadow: 2px 2px 4px #252525;
+}
+
+header{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+nav span{
+    font-size: 1.2rem;
+}
+
+nav #userProfileBtn{
+    border: none;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #00b4d8; 
+}
+
+nav #userProfileBtn:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 6px #6e6e6e;
+}
+
+nav #logInBtn{
+    border-radius: 10px;
+    border: solid 1px #d1f8ff;
+    background-color: #45d1ff;
+    font-size: 1rem;
+    padding: 10px;
+    color: #fff;
+}
+
+nav #logInBtn:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 6px #6e6e6e;
+}

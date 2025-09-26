@@ -27,7 +27,7 @@ input[type="checkbox"] {
   padding-left: 10px;
 }
 
-button {
+.deleteBtn{
   background-color: red;
   border: none;
   border-radius: 5px;

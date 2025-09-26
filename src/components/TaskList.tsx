@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import "./TodoList.css";
+import "../styles/components/TodoList.css";
 
 type Todo = {
   id: string;
@@ -37,7 +37,7 @@ export default function TaskList() {
           </div>
           <div className="todo-right">
             <span>{todo.timestamp}</span>
-            <button>Delete</button>
+            <button className="deleteBtn">Delete</button>
           </div>
         </li>
       ))}

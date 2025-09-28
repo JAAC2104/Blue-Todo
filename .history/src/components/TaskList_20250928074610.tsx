@@ -36,7 +36,7 @@ export default function TaskList() {
             <span className="todo-text">{todo.text}</span>
           </div>
           <div className="todo-right">
-            <span className="todo-timestamp">{todo.timestamp}</span>
+            <span>{todo.timestamp}</span>
             <button className="deleteBtn">Delete</button>
           </div>
         </li>

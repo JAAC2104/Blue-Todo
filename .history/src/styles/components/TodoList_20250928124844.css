@@ -8,9 +8,6 @@
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  box-shadow: 7px 6px 15px -4px rgba(117, 117, 117, 0.77);
-  -webkit-box-shadow: 7px 6px 15px -4px rgba(117, 117, 117, 0.77);
-  -moz-box-shadow: 7px 6px 15px -4px rgba(117, 117, 117, 0.77);
 }
 
 .todo-left {
@@ -33,7 +30,6 @@ input[type="checkbox"] {
 
 .todo-timestamp {
   color: grey;
-  font-size: 0.8rem;
 }
 
 .deleteBtn {

@@ -1,16 +1,12 @@
 .todo-list {
   list-style: none;
-  padding: 15px;
-  border: 2px solid lightgrey;
+  padding: 7px;
+  border: 2px solid rgb(25, 110, 159);
   border-radius: 6px;
   margin: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
-  box-shadow: 7px 6px 15px -4px rgba(117, 117, 117, 0.77);
-  -webkit-box-shadow: 7px 6px 15px -4px rgba(117, 117, 117, 0.77);
-  -moz-box-shadow: 7px 6px 15px -4px rgba(117, 117, 117, 0.77);
 }
 
 .todo-left {
@@ -31,12 +27,7 @@ input[type="checkbox"] {
   padding-left: 10px;
 }
 
-.todo-timestamp {
-  color: grey;
-  font-size: 0.8rem;
-}
-
-.deleteBtn {
+.deleteBtn{
   background-color: red;
   border: none;
   border-radius: 5px;

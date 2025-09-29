@@ -6,15 +6,9 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component: MainPage,
-    children: [
-      {
-        index: true,
-        Component: MainPage,
-      },
-      {
-        path: "login",
-        Component: LoginPage,
-      },
-    ],
+  },
+  {
+    path: "/login",
+    Component: LoginPage,
   },
 ]);

@@ -1,7 +1,7 @@
 .todo-list {
   list-style: none;
   padding: 15px;
-  border: 2px solid lightgrey;
+  /* border: 2px solid lightgrey; */
   border-radius: 6px;
   margin: 5px;
   display: flex;
@@ -33,7 +33,6 @@ input[type="checkbox"] {
 
 .todo-timestamp {
   color: grey;
-  font-size: 0.8rem;
 }
 
 .deleteBtn {

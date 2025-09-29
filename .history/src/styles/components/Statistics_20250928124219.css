@@ -1,0 +1,29 @@
+.statistic-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 50px;
+  background-color: white;
+  margin: 5px;
+}
+
+.statistics {
+  width: 100%;
+  height: auto;
+  background-color: #0370aa;
+  margin: 7px;
+  border-radius: 6px;
+}
+
+.statistic-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin: 10px;
+  color: white;
+}
+
+.statistic-number {
+  font-size: 100px;
+  font-weight: bold;
+}

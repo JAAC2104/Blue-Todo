@@ -2,6 +2,8 @@ import "../styles/components/TodoList.css";
 
 export default function TaskList({ todos, onDelete }) {
   const handleDelete = (todo) => {
+    console.log("deleted from task list");
+    console.log(todo);
     onDelete(todo);
   };
 

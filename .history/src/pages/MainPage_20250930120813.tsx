@@ -35,6 +35,7 @@ export default function MainPage() {
   };
   const handleDelete = (deleted: Todo) => {
     setTodos((prev) => prev.filter((todo) => todo.id !== deleted.id));
+    console.log("todo is deleted");
   };
 
   return (

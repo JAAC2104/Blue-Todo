@@ -1,7 +1,9 @@
 import "../styles/components/TodoList.css";
 
 export default function TaskList({ todos, onDelete }) {
-  const handleDelete = (todo) => {
+  const handleDelete = () => {
+    console.log("deleted from task list");
+    console.log(todo);
     onDelete(todo);
   };
 
@@ -15,7 +17,7 @@ export default function TaskList({ todos, onDelete }) {
           </div>
           <div className="todo-right">
             <span className="todo-timestamp">{todo.timestamp}</span>
-            <button id="deleteBtn" onClick={() => handleDelete(todo)}>
+            <button id="deleteBtn" onClick={handleDelete}>
               Delete
             </button>
           </div>

@@ -48,5 +48,5 @@ input[type="checkbox"] {
 
 #deleteBtn:hover {
   background-color: red;
-  transition: 0.2s;
+  transition: 0.3s;
 }

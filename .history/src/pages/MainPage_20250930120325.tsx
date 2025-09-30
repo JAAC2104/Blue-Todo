@@ -30,11 +30,11 @@ export default function MainPage() {
   ];
 
   const [todos, setTodos] = useState<Todo[]>(initialTodo);
-  const handleAdd = (newTodo: Todo) => {
+  const handleAdd = (newTodo) => {
     setTodos((prev) => [...prev, newTodo]);
   };
-  const handleDelete = (deleted: Todo) => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== deleted.id));
+  const handleDelete = (deleted) => {
+    setTodos(todos.filter((todo) => todo.id !== deleted.id));
   };
 
   return (

@@ -37,7 +37,7 @@ input[type="checkbox"] {
 }
 
 #deleteBtn {
-  background-color: rgb(184, 11, 11);
+  background-color: red;
   border: none;
   border-radius: 5px;
   color: white;
@@ -48,5 +48,4 @@ input[type="checkbox"] {
 
 #deleteBtn:hover {
   background-color: red;
-  transition: 0.2s;
 }

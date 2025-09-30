@@ -1,7 +1,13 @@
 import { useState } from "react";
 import "../styles/components/TasksHandler.css";
 import { v4 as uuidv4 } from "uuid";
-import type { Todo } from "../types/Todo";
+
+type Todo = {
+  id: string;
+  text: string;
+  status: "active" | "completed";
+  timestamp: string;
+};
 
 type TasksHandlerProps = {
   onAdd: (todo: Todo) => void;

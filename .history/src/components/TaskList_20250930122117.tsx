@@ -1,6 +1,11 @@
 import "../styles/components/TodoList.css";
-import type { Todo } from "../types/Todo";
 
+type Todo = {
+  id: string;
+  text: string;
+  status: "pending" | "completed";
+  timestamp: string;
+};
 type TaskListProps = {
   todos: Todo[];
   onDelete: (todo: Todo) => void;

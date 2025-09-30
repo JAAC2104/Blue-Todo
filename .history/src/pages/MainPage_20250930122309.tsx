@@ -5,7 +5,13 @@ import Statistics from "../components/Statistics";
 import TasksHandler from "../components/TasksHandler";
 import "../styles/pages/MainPage.css";
 import { v4 as uuidv4 } from "uuid";
-import type { Todo } from "../types/Todo";
+
+type Todo = {
+  id: string;
+  text: string;
+  status: "active" | "completed";
+  timestamp: string;
+};
 
 export default function MainPage() {
   const initialTodo: Todo[] = [

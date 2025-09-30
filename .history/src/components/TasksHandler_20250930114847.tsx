@@ -1,13 +1,8 @@
 import { useState } from "react";
 import "../styles/components/TasksHandler.css";
 import { v4 as uuidv4 } from "uuid";
-import type { Todo } from "../types/Todo";
 
-type TasksHandlerProps = {
-  onAdd: (todo: Todo) => void;
-};
-
-export default function TasksHandler({ onAdd }: TasksHandlerProps) {
+export default function TasksHandler({ onAdd }) {
   const [isActive, setIsActive] = useState<"all" | "todo" | "completed">("all");
   const [text, setText] = useState("");
   const handleChange = (e) => {

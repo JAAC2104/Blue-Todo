@@ -36,7 +36,7 @@ input {
   border: 1px solid lightgrey;
 }
 
-button {
+#loginBtn {
   background-color: #0370aa;
   padding: 15px 0;
   color: white;
@@ -48,7 +48,7 @@ button {
   margin-top: 1rem;
 }
 
-button:hover {
+#loginBtn:hover {
   background-color: #12a6d8;
 }
 
@@ -56,4 +56,27 @@ button:hover {
   color: rgb(156, 154, 154);
   margin: 1rem 0;
   text-align: center;
+}
+
+.returnBtn{
+  margin: 20px;
+  position: absolute;
+  background-color: #12a6d8;
+  border: solid 1px #d1f8ff;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+}
+
+.returnBtn:hover{
+  cursor: pointer;
+  box-shadow: 2px 2px 4px #242424;
+}
+
+#returnArrow{
+  height: 25px;
+  width: 25px;
 }

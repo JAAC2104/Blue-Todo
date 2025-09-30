@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import '../styles/components/Navbar.css'
 
 
@@ -10,7 +11,7 @@ export default function Navbar(){
             <nav>
                     <span>Welcome, {username}</span>
                     <button id="userProfileBtn">D</button>
-                    <button id="logInBtn">Log In</button>
+                    <NavLink to="/login" id="logInBtn">Log In</NavLink>
             </nav>
         </div>
     )

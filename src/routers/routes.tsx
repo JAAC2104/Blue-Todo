@@ -4,17 +4,11 @@ import LoginPage from "../pages/LoginPage";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    index: true,
     Component: MainPage,
-    children: [
-      {
-        index: true,
-        Component: MainPage,
-      },
-      {
-        path: "login",
-        Component: LoginPage,
-      },
-    ],
+  },
+  {
+    path: "/login",
+    Component: LoginPage,
   },
 ]);

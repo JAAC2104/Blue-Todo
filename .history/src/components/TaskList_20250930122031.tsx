@@ -1,13 +1,7 @@
 import "../styles/components/TodoList.css";
-import type { Todo } from "../types/Todo";
 
-type TaskListProps = {
-  todos: Todo[];
-  onDelete: (todo: Todo) => void;
-};
-
-export default function TaskList({ todos, onDelete }: TaskListProps) {
-  const handleDelete = (todo: Todo) => {
+export default function TaskList({ todos, onDelete }) {
+  const handleDelete = (todo) => {
     onDelete(todo);
   };
 

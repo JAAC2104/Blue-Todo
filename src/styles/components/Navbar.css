@@ -36,7 +36,10 @@ nav #userProfileBtn{
     height: 40px;
     font-size: 1rem;
     font-weight: bold;
-    color: #00b4d8; 
+    color: #00b4d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 nav #userProfileBtn:hover{
@@ -51,6 +54,7 @@ nav #logInBtn{
     font-size: 1rem;
     padding: 10px;
     color: #fff;
+    text-decoration: none;
 }
 
 nav #logInBtn:hover{

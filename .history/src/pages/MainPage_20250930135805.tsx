@@ -12,7 +12,7 @@ export default function MainPage() {
     {
       id: uuidv4(),
       text: "grocery shopping",
-      status: "active",
+      status: "completed",
       timestamp: new Date().toLocaleString(),
     },
     {

@@ -6,8 +6,8 @@ type StatisticsProps = {
 };
 
 export default function Statistics({ todos }: StatisticsProps) {
-  const active = todos.filter((t) => t.status === "active").length;
-  const completed = todos.filter((t) => t.status === "completed").length;
+  const active = todos.map((t) => t.status === "active").length;
+  const completed = todos.map((t) => t.status === "completed").length;
   const total = todos.length;
 
   return (
@@ -15,7 +15,7 @@ export default function Statistics({ todos }: StatisticsProps) {
       <div className="statistic-container">
         <div className="statistics">
           <div className="statistic-box">
-            <span className="statistic-number">{total}</span>
+            <span className="statistic-number">1</span>
             <div>Total Tasks</div>
           </div>
         </div>

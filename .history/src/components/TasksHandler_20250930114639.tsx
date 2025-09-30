@@ -5,9 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 export default function TasksHandler({ onAdd }) {
   const [isActive, setIsActive] = useState<"all" | "todo" | "completed">("all");
   const [text, setText] = useState("");
-  const handleChange = (e) => {
-    setText(e.target.value);
-  };
+  const handleChange = (e) => setText(e.target.value);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text.trim().length === 0) return;
@@ -17,7 +15,6 @@ export default function TasksHandler({ onAdd }) {
       status: "active",
       timestamp: new Date().toLocaleString(),
     });
-    setText("");
   };
 
   return (

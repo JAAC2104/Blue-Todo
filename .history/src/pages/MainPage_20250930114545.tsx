@@ -31,7 +31,7 @@ export default function MainPage() {
 
   const [todos, setTodos] = useState<Todo[]>(initialTodo);
   const handleAdd = (newTodo) => {
-    setTodos((prev) => [...prev, newTodo]);
+    setTodos((prev) => [prev, newTodo]);
   };
 
   return (

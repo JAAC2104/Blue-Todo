@@ -1,24 +1,11 @@
 import { useState } from "react";
 import "../styles/components/TasksHandler.css";
-import { v4 as uuidv4 } from "uuid";
 
 export default function TasksHandler({ onAdd }) {
   const [isActive, setIsActive] = useState<"all" | "todo" | "completed">("all");
   const [text, setText] = useState("");
-  const handleChange = (e) => {
-    setText(e.target.value);
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (text.trim().length === 0) return;
-    onAdd({
-      id: uuidv4(),
-      text,
-      status: "active",
-      timestamp: new Date().toLocaleString(),
-    });
-    setText("");
-  };
+  const handleChange = (e) => setText(e.target.value);
+  const handleSubmit = () => {};
 
   return (
     <div id="tasksHandler">

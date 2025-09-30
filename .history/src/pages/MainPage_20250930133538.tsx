@@ -37,12 +37,12 @@ export default function MainPage() {
       <div id="tasksMenu">
         <Statistics />
         <TasksHandler onAdd={handleAdd} />
-        {todos.length < 1 ? (
-          <p id="noListStatement"> You don’t have any items in the list yet.</p>
-        ) : (
-          <TaskList todos={todos} onDelete={handleDelete} />
-        )}
-      </div>
+        {if(todos.length === 0) {
+
+        } else {
+        <TaskList todos={todos} onDelete={handleDelete} />
+      }}
+        </div>
     </>
   );
 }

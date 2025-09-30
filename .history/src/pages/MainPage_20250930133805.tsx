@@ -38,7 +38,7 @@ export default function MainPage() {
         <Statistics />
         <TasksHandler onAdd={handleAdd} />
         {todos.length < 1 ? (
-          <p id="noListStatement"> You don’t have any items in the list yet.</p>
+          <p> There is no list. </p>
         ) : (
           <TaskList todos={todos} onDelete={handleDelete} />
         )}

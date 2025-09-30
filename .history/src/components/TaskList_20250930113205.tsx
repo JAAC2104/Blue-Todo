@@ -1,6 +1,6 @@
 import "../styles/components/TodoList.css";
 
-export default function TaskList({ todos }) {
+export default function TaskList() {
   return (
     <ul>
       {todos.map((todo) => (

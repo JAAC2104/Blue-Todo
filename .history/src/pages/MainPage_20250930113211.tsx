@@ -6,14 +6,13 @@ import TasksHandler from "../components/TasksHandler";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-type Todo = {
-  id: string;
-  text: string;
-  status: "pending" | "completed";
-  timestamp: string;
-};
-
 export default function MainPage() {
+  type Todo = {
+    id: string;
+    text: string;
+    status: "pending" | "completed";
+    timestamp: string;
+  };
   const initialTodo: Todo[] = [
     {
       id: uuidv4(),
@@ -37,7 +36,7 @@ export default function MainPage() {
       <div id="tasksMenu">
         <Statistics />
         <TasksHandler />
-        <TaskList todos={todos} />
+        <TaskList />
       </div>
     </>
   );

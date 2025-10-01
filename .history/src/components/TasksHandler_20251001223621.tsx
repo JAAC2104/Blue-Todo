@@ -13,7 +13,7 @@ export default function TasksHandler({ onAdd }: TasksHandlerProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (text.trim().length === 0) return;
     onAdd({

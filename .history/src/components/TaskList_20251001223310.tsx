@@ -1,3 +1,4 @@
+import type { ReactHTMLElement } from "react";
 import "../styles/components/TodoList.css";
 import type { Todo } from "../types/Todo";
 
@@ -12,7 +13,7 @@ export default function TaskList({ todo, onDelete, onUpdate }: TaskListProps) {
   const handleDelete = (todo: Todo) => {
     onDelete(todo);
   };
-  const handleChange = (todo: Todo, e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (todo, e) => {
     const status = e.target.checked ? "completed" : "todo";
     onUpdate({ ...todo, status });
   };

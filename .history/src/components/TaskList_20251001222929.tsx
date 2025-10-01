@@ -2,7 +2,7 @@ import "../styles/components/TodoList.css";
 import type { Todo } from "../types/Todo";
 
 type TaskListProps = {
-  todo: Todo;
+  todo: Todo[];
   onDelete: (todo: Todo) => void;
   onUpdate: (todo: Todo) => void;
 };
@@ -11,10 +11,6 @@ export default function TaskList({ todo, onDelete, onUpdate }: TaskListProps) {
   const { id, text, status, timestamp } = todo;
   const handleDelete = (todo: Todo) => {
     onDelete(todo);
-  };
-  const handleChange = (todo: Todo, e: React.ChangeEvent<HTMLInputElement>) => {
-    const status = e.target.checked ? "completed" : "todo";
-    onUpdate({ ...todo, status });
   };
 
   return (

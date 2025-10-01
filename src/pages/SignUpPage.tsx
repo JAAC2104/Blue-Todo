@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import "../styles/pages/LoginPage.css";
 import ArrowIcon from "../assets/leftArrow.svg?react"
 
-export default function LoginPage() {
+export default function SignUpPage() {
   return (<>
     <NavLink id="returnLink" to="/">
       <div className="returnBtn">
@@ -14,6 +14,11 @@ export default function LoginPage() {
         <h1>Welcome to Blue Todo</h1>
 
         <div className="form-section">
+          <label>Username</label>
+          <input type="text" required/>
+        </div>
+
+        <div className="form-section">
           <label>Email</label>
           <input type="email" required/>
         </div>
@@ -23,9 +28,16 @@ export default function LoginPage() {
           <input type="password" required/>
         </div>
 
+        <div className="form-section">
+          <label>Confirm Password</label>
+          <input type="password" required/>
+        </div>
+
         <button id="loginBtn">Login</button>
 
-        <p className="login-demo-statement">Don't have an account? <NavLink to='/signup'>Sign Up</NavLink></p>
+        <p className="login-demo-statement">
+          <p>Already have an account? <NavLink to='/login'>Log In</NavLink></p>
+        </p>
       </form>
     </div>
   </>);

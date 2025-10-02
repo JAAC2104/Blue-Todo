@@ -6,7 +6,7 @@ type StatisticsProps = {
 };
 
 export default function Statistics({ todos }: StatisticsProps) {
-  const active = todos.filter((t) => t.status === "todo").length;
+  const active = todos.filter((t) => t.status === "active").length;
   const completed = todos.filter((t) => t.status === "completed").length;
   const total = todos.length;
 

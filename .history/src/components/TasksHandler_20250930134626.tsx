@@ -10,16 +10,16 @@ type TasksHandlerProps = {
 export default function TasksHandler({ onAdd }: TasksHandlerProps) {
   const [isActive, setIsActive] = useState<"all" | "todo" | "completed">("all");
   const [text, setText] = useState("");
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     setText(e.target.value);
   };
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (text.trim().length === 0) return;
     onAdd({
       id: uuidv4(),
       text,
-      status: "todo",
+      status: "active",
       timestamp: new Date().toLocaleString(),
     });
     setText("");

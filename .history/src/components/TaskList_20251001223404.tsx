@@ -1,3 +1,4 @@
+import type { ReactHTMLElement } from "react";
 import "../styles/components/TodoList.css";
 import type { Todo } from "../types/Todo";
 

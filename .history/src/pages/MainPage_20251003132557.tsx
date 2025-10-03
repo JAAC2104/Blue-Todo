@@ -4,12 +4,27 @@ import TaskList from "../components/TaskList";
 import Statistics from "../components/Statistics";
 import TasksHandler from "../components/TasksHandler";
 import "../styles/pages/MainPage.css";
+import type { Todo } from "../types/Todo";
 import useTodos from "../hooks/useTodos";
 
 export default function MainPage() {
-  const { todos, handleAdd, handleUpdate, handleDelete } = useTodos();
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const {todos, addTodo, deleteTodo, updateTodo} = useTodos();}
   const [filter, setFilter] = useState<"all" | "todo" | "completed">("all");
 
+  const handleAdd = (newTodo: Todo) => {
+    setTodos((prev) => [...prev, newTodo]);
+  };
+
+  const handleDelete = (deleted: Todo) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== deleted.id));
+  };
+
+  const handleUpdate = (updated: Todo) => {
+    setTodos((prev) =>
+      prev.map((todo) => (todo.id === updated.id ? updated : todo))
+    );
+  };
   const filtered = todos.filter((todo) => {
     if (filter === "all") return true;
     return todo.status === filter;

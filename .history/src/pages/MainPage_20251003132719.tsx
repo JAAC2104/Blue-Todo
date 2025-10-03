@@ -4,12 +4,27 @@ import TaskList from "../components/TaskList";
 import Statistics from "../components/Statistics";
 import TasksHandler from "../components/TasksHandler";
 import "../styles/pages/MainPage.css";
+import type { Todo } from "../types/Todo";
 import useTodos from "../hooks/useTodos";
 
 export default function MainPage() {
-  const { todos, handleAdd, handleUpdate, handleDelete } = useTodos();
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const { todos, addTodo, deleteTodo, updateTodo } = useTodos();
   const [filter, setFilter] = useState<"all" | "todo" | "completed">("all");
 
+  // const handleAdd = (newTodo: Todo) => {
+  //   setTodos((prev) => [...prev, newTodo]);
+  // };
+
+  // const handleDelete = (deleted: Todo) => {
+  //   setTodos((prev) => prev.filter((todo) => todo.id !== deleted.id));
+  // };
+
+  // const handleUpdate = (updated: Todo) => {
+  //   setTodos((prev) =>
+  //     prev.map((todo) => (todo.id === updated.id ? updated : todo))
+  //   );
+  // };
   const filtered = todos.filter((todo) => {
     if (filter === "all") return true;
     return todo.status === filter;
@@ -20,16 +35,12 @@ export default function MainPage() {
       <Navbar />
       <div id="tasksMenu">
         <Statistics todos={todos} />
-        <TasksHandler onAdd={handleAdd} setFilter={setFilter} />
+        <TasksHandler onAdd={addTodo} setFilter={setFilter} />
         {todos.length < 1 ? (
           <p id="noListStatement"> You don’t have any items in the list yet.</p>
         ) : (
           filtered.map((todo) => (
-            <TaskList
-              todo={todo}
-              onDelete={handleDelete}
-              onUpdate={handleUpdate}
-            />
+            <TaskList todo={todo} onDelete={deleteTodo} onUpdate={updateTodo} />
           ))
         )}
       </div>

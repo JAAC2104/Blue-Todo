@@ -4,6 +4,7 @@ import TaskList from "../components/TaskList";
 import Statistics from "../components/Statistics";
 import TasksHandler from "../components/TasksHandler";
 import "../styles/pages/MainPage.css";
+import type { Todo } from "../types/Todo";
 import useTodos from "../hooks/useTodos";
 
 export default function MainPage() {

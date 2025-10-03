@@ -80,3 +80,14 @@ input {
   height: 25px;
   width: 25px;
 }
+
+#errorText{
+  background: #fc6767;
+  width: 70%;
+  margin: 10px auto;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  border: solid 2px #ff2323;
+}

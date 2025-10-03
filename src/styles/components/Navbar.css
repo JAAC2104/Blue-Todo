@@ -29,6 +29,12 @@ nav span{
     font-size: 1.2rem;
 }
 
+nav .userInfo{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
 nav #userProfileBtn{
     border: none;
     border-radius: 100%;
@@ -47,7 +53,7 @@ nav #userProfileBtn:hover{
     box-shadow: 2px 2px 6px #6e6e6e;
 }
 
-nav #logInBtn{
+nav .logInBtn{
     border-radius: 10px;
     border: solid 1px #d1f8ff;
     background-color: #45d1ff;
@@ -57,7 +63,7 @@ nav #logInBtn{
     text-decoration: none;
 }
 
-nav #logInBtn:hover{
+nav .logInBtn:hover{
     cursor: pointer;
     box-shadow: 2px 2px 6px #6e6e6e;
 }

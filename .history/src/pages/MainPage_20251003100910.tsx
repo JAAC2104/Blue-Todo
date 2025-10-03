@@ -8,7 +8,6 @@ import type { Todo } from "../types/Todo";
 
 export default function MainPage() {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [filter, setFilter] = useState<"all" | "todo" | "completed">("all");
 
   const handleAdd = (newTodo: Todo) => {
     setTodos((prev) => [...prev, newTodo]);
@@ -23,21 +22,17 @@ export default function MainPage() {
       prev.map((todo) => (todo.id === updated.id ? updated : todo))
     );
   };
-  const filtered = todos.filter((todo) => {
-    if (filter === "all") return true;
-    return todo.status === filter;
-  });
 
   return (
     <>
       <Navbar />
       <div id="tasksMenu">
         <Statistics todos={todos} />
-        <TasksHandler onAdd={handleAdd} setFilter={setFilter} />
+        <TasksHandler onAdd={handleAdd} />
         {todos.length < 1 ? (
           <p id="noListStatement"> You don’t have any items in the list yet.</p>
         ) : (
-          filtered.map((todo) => (
+          todos.map((todo) => (
             <TaskList
               todo={todo}
               onDelete={handleDelete}

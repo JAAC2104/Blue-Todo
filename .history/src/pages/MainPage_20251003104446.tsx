@@ -6,6 +6,8 @@ import TasksHandler from "../components/TasksHandler";
 import "../styles/pages/MainPage.css";
 import type { Todo } from "../types/Todo";
 
+const filters = ["all", "todo", "completed"];
+
 export default function MainPage() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [filter, setFilter] = useState<"all" | "todo" | "completed">("all");

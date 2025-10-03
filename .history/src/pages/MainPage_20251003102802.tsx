@@ -6,6 +6,7 @@ import TasksHandler from "../components/TasksHandler";
 import "../styles/pages/MainPage.css";
 import type { Todo } from "../types/Todo";
 
+const filters = ["all", "todo", "", "completed"];
 export default function MainPage() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [filter, setFilter] = useState<"all" | "todo" | "completed">("all");
@@ -33,7 +34,13 @@ export default function MainPage() {
       <Navbar />
       <div id="tasksMenu">
         <Statistics todos={todos} />
-        <TasksHandler onAdd={handleAdd} setFilter={setFilter} />
+        <TasksHandler
+          todos={todos}
+          onAdd={handleAdd}
+          filter={filter}
+          setFilter={setFilter}
+          filtered={filtered}
+        />
         {todos.length < 1 ? (
           <p id="noListStatement"> You don’t have any items in the list yet.</p>
         ) : (

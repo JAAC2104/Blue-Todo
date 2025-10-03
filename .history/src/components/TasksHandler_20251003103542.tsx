@@ -6,10 +6,14 @@ import TaskFilters from "./TaskFilters";
 
 type TasksHandlerProps = {
   onAdd: (todo: Todo) => void;
-  setFilter: React.Dispatch<React.SetStateAction<"all" | "todo" | "completed">>;
+  todos: Todo[];
 };
 
-export default function TasksHandler({ onAdd, setFilter }: TasksHandlerProps) {
+export default function TasksHandler({
+  onAdd,
+  todos,
+  setFilter,
+}: TasksHandlerProps) {
   const [text, setText] = useState("");
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
@@ -28,7 +32,7 @@ export default function TasksHandler({ onAdd, setFilter }: TasksHandlerProps) {
 
   return (
     <div id="tasksHandler">
-      <TaskFilters setFilter={setFilter} />
+      <TaskFilters todos={todos} setFilter={setFilter} />
 
       <form id="taskForm" onSubmit={handleSubmit}>
         <input

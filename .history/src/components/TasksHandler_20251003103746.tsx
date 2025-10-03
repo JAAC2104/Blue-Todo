@@ -6,7 +6,6 @@ import TaskFilters from "./TaskFilters";
 
 type TasksHandlerProps = {
   onAdd: (todo: Todo) => void;
-  setFilter: React.Dispatch<React.SetStateAction<"all" | "todo" | "completed">>;
 };
 
 export default function TasksHandler({ onAdd, setFilter }: TasksHandlerProps) {

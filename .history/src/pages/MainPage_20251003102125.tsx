@@ -33,7 +33,7 @@ export default function MainPage() {
       <Navbar />
       <div id="tasksMenu">
         <Statistics todos={todos} />
-        <TasksHandler onAdd={handleAdd} setFilter={setFilter} />
+        <TasksHandler todos={todos} onAdd={handleAdd} />
         {todos.length < 1 ? (
           <p id="noListStatement"> You don’t have any items in the list yet.</p>
         ) : (

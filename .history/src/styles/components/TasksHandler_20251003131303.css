@@ -1,0 +1,60 @@
+#tasksHandler {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 20px;
+}
+
+#tasksFilters {
+  display: flex;
+  gap: 20px;
+}
+
+.filterBtn {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.filterBtn:hover {
+  background-color: #e4e4e4;
+}
+
+.active {
+  background-color: #0370aa;
+  color: #fff;
+}
+
+.active:hover {
+  background-color: #0370aa;
+}
+
+#taskForm {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+
+#taskNameInput {
+  padding: 15px;
+  font-size: 1rem;
+}
+
+#createTaskBtn {
+  background-color: #0370aa;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#createTaskBtn:hover {
+  background-color: #12a6d8;
+}

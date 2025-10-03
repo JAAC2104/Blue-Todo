@@ -14,7 +14,7 @@ export default function TaskFilters({
           className={`filterBtn ${isActive === "all" ? "active" : ""}`}
           onClick={() => {
             setFilter("all");
-            setIsActive("all");
+            setisActive("all");
           }}
         >
           All Tasks

@@ -12,10 +12,7 @@ export default function TaskFilters({
       <div id="tasksFilters">
         <button
           className={`filterBtn ${isActive === "all" ? "active" : ""}`}
-          onClick={() => {
-            setFilter("all");
-            setIsActive("all");
-          }}
+          onClick={() => setFilter("all")}
         >
           All Tasks
         </button>
@@ -30,10 +27,9 @@ export default function TaskFilters({
         </button>
         <button
           className={`filterBtn ${isActive === "completed" ? "active" : ""}`}
-          onClick={() => {
-            setFilter("completed");
-            setIsActive("completed");
-          }}
+          onClick={() => {setFilter("completed")
+            setIsActive("completed")};
+          }
         >
           Completed
         </button>

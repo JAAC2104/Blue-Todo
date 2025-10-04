@@ -19,7 +19,7 @@ This is a **collaborative project** developed and maintained by:
 
 - **React** with Vite ⚡  
 - **TypeScript** for strong typing  
-- **Firebase Firestore** (real-time database)  
+- **Firebase Firestore and Authentication** (real-time database)  
 - **Custom CSS** for styling  
 - **UUID** for generating unique task IDs  
 

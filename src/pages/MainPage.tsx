@@ -1,44 +1,50 @@
-import { useState } from "react";
 import Navbar from "../components/Navbar";
-import TaskList from "../components/TaskList";
 import Statistics from "../components/Statistics";
 import TasksHandler from "../components/TasksHandler";
 import "../styles/pages/MainPage.css";
 import type { Todo } from "../types/Todo";
+import useTasksHook from "../hooks/useTasksHook";
+import TaskItem from "../components/TaskItem";
 
 export default function MainPage() {
-  const [todos, setTodos] = useState<Todo[]>([]);
-
-  const handleAdd = (newTodo: Todo) => {
-    setTodos((prev) => [...prev, newTodo]);
-  };
+  const { tasks, loading, updateTask, deleteTask, error } = useTasksHook();
 
   const handleDelete = (deleted: Todo) => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== deleted.id));
+    deleteTask(deleted.id).catch((e) => console.error("deleteTask error:", e));
   };
 
   const handleUpdate = (updated: Todo) => {
-    setTodos((prev) =>
-      prev.map((todo) => (todo.id === updated.id ? updated : todo))
-    );
+    const patch: Partial<Omit<Todo, "id">> = {};
+    if (typeof updated.status !== "undefined") patch.status = updated.status;
+    if (typeof updated.text !== "undefined") patch.text = updated.text;
+    updateTask(updated.id, patch).catch((e) => console.error("updateTask error:", e));
   };
 
   return (
     <>
       <Navbar />
       <div id="tasksMenu">
-        <Statistics todos={todos} />
-        <TasksHandler onAdd={handleAdd} />
-        {todos.length < 1 ? (
-          <p id="noListStatement"> You don’t have any items in the list yet.</p>
-        ) : (
-          todos.map((todo) => (
-            <TaskList
-              todo={todo}
-              onDelete={handleDelete}
-              onUpdate={handleUpdate}
-            />
-          ))
+        <Statistics todos={tasks} />
+        <TasksHandler />
+
+        {loading && <p id="noListStatement">Loading…</p>}
+        {!loading && error && <p id="noListStatement">Error: {error}</p>}
+
+        {!loading && !error && (
+          tasks.length < 1 ? (
+            <p id="noListStatement">You don’t have any items in the list yet.</p>
+          ) : (
+            <ul>
+              {tasks.map((todo) => (
+                <TaskItem
+                  key={todo.id}
+                  todo={todo}
+                  onDelete={handleDelete}
+                  onUpdate={handleUpdate}
+                />
+              ))}
+            </ul>
+          )
         )}
       </div>
     </>

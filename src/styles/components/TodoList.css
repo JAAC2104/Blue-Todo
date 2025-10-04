@@ -3,38 +3,52 @@
   padding: 15px;
   border: 2px solid lightgrey;
   border-radius: 6px;
-  margin: 5px;
+  margin: 8px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: #fff;
   box-shadow: 7px 6px 15px -4px rgba(117, 117, 117, 0.77);
   -webkit-box-shadow: 7px 6px 15px -4px rgba(117, 117, 117, 0.77);
   -moz-box-shadow: 7px 6px 15px -4px rgba(117, 117, 117, 0.77);
+  transition: transform 0.15s ease;
 }
 
 .todo-left {
   display: flex;
   align-items: center;
+  flex: 1;
 }
 
-input[type="checkbox"] {
+.todo-left input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
   accent-color: green;
+  cursor: pointer;
+}
+
+.todo-text {
+  padding-left: 10px;
+  font-size: 1rem;
+  color: #222;
+  word-break: break-word;
+}
+
+.todo-left input[type="checkbox"]:checked + .todo-text {
+  text-decoration: line-through;
+  color: #888;
 }
 
 .todo-right {
   display: flex;
   align-items: center;
-}
-
-.todo-text {
-  padding-left: 10px;
-  color: black;
+  gap: 10px;
 }
 
 .todo-timestamp {
   color: grey;
   font-size: 0.8rem;
+  white-space: nowrap;
 }
 
 #deleteBtn {
@@ -43,11 +57,11 @@ input[type="checkbox"] {
   border-radius: 5px;
   color: white;
   padding: 5px 10px;
-  margin-left: 10px;
   cursor: pointer;
+  font-size: 0.9rem;
 }
 
 #deleteBtn:hover {
   background-color: red;
-  transition: 0.2s;
+  transition: background-color 0.2s ease;
 }

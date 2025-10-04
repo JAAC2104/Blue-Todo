@@ -1,28 +1,27 @@
 import { useState } from "react";
 import "../styles/components/TasksHandler.css";
-import { v4 as uuidv4 } from "uuid";
-import type { Todo } from "../types/Todo";
+import useTasksHook from "../hooks/useTasksHook";
 
-type TasksHandlerProps = {
-  onAdd: (todo: Todo) => void;
-};
-
-export default function TasksHandler({ onAdd }: TasksHandlerProps) {
+export default function TasksHandler() {
   const [isActive, setIsActive] = useState<"all" | "todo" | "completed">("all");
   const [text, setText] = useState("");
+  const { addTask } = useTasksHook();
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (text.trim().length === 0) return;
-    onAdd({
-      id: uuidv4(),
-      text,
-      status: "todo",
-      timestamp: new Date().toLocaleString(),
-    });
-    setText("");
+    const value = text.trim();
+    if (!value) return;
+
+    try {
+      await addTask(value);
+      setText("");
+    } catch (err) {
+      console.error("addTask error:", err);
+    }
   };
 
   return (
@@ -47,6 +46,7 @@ export default function TasksHandler({ onAdd }: TasksHandlerProps) {
           Completed
         </button>
       </div>
+
       <form id="taskForm" onSubmit={handleSubmit}>
         <input
           type="text"

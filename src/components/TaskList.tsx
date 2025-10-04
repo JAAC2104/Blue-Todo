@@ -1,43 +1,20 @@
-import "../styles/components/TodoList.css";
+import TaskItem from "./TaskItem";
 import type { Todo } from "../types/Todo";
 
-type TaskListProps = {
-  todo: Todo;
+type TodosListProps = {
+  todos: Todo[];
   onDelete: (todo: Todo) => void;
   onUpdate: (todo: Todo) => void;
 };
 
-export default function TaskList({ todo, onDelete, onUpdate }: TaskListProps) {
-  const { id, text, status, timestamp } = todo;
-  const handleDelete = (todo: Todo) => {
-    onDelete(todo);
-  };
-  const handleChange = (todo: Todo, e: React.ChangeEvent<HTMLInputElement>) => {
-    const status = e.target.checked ? "completed" : "todo";
-    onUpdate({ ...todo, status });
-  };
+export default function TodosList({ todos, onDelete, onUpdate }: TodosListProps) {
+  if (todos.length === 0) return <p>No tasks yet</p>;
 
   return (
     <ul>
-      <li key={id} className="todo-list">
-        <div className="todo-left">
-          <input
-            type="checkbox"
-            id={id}
-            checked={status === "completed"}
-            onChange={(e) => handleChange(todo, e)}
-          />
-          <label htmlFor={id} className="todo-text">
-            {text}
-          </label>
-        </div>
-        <div className="todo-right">
-          <span className="todo-timestamp">{timestamp}</span>
-          <button id="deleteBtn" onClick={() => handleDelete(todo)}>
-            Delete
-          </button>
-        </div>
-      </li>
+      {todos.map((t) => (
+        <TaskItem key={t.id} todo={t} onDelete={onDelete} onUpdate={onUpdate} />
+      ))}
     </ul>
   );
 }

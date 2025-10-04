@@ -1,69 +1,37 @@
-# React + TypeScript + Vite
+# ✅ Blue-Todo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Blue-Todo** is a simple and clean **to-do list application** built with **React + TypeScript** and powered by **Firebase Firestore** for real-time data storage.  
+The main goal is to provide a fast and user-friendly experience for managing tasks with the following features:
 
-Currently, two official plugins are available:
+- ✨ Create tasks  
+- 🗑️ Delete tasks  
+- ✅ Mark tasks as completed  
+- ✏️ Update task status  
+- 📊 View basic task statistics  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a **collaborative project** developed and maintained by:  
+- [JAAC2104](https://github.com/JAAC2104)  
+- [darae1225](https://github.com/darae1225)  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Technologies Used
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React** with Vite ⚡  
+- **TypeScript** for strong typing  
+- **Firebase Firestore** (real-time database)  
+- **Custom CSS** for styling  
+- **UUID** for generating unique task IDs  
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📂 Project Structure
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+src/
+├── components/ # Reusable UI components (TaskItem, TodosList, Navbar, etc.)
+├── hooks/ # Custom hooks (useTasksHook)
+├── pages/ # Main pages (MainPage, LoginPage, etc.)
+├── contexts/ # Global contexts (AuthContext)
+├── firebase/ # Firebase configuration
+├── styles/ # CSS styles organized per component
+└── types/ # Type definitions (Todo, etc.)

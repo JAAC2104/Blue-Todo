@@ -2,8 +2,14 @@ import { useState } from "react";
 import "../styles/components/TasksHandler.css";
 import useTasksHook from "../hooks/useTasksHook";
 
-export default function TasksHandler() {
-  const [isActive, setIsActive] = useState<"all" | "todo" | "completed">("all");
+type Filter = "all" | "todo" | "completed";
+
+type Props = {
+  filter: Filter;
+  onFilterChange: (f: Filter) => void;
+};
+
+export default function TasksHandler({ filter, onFilterChange }: Props) {
   const [text, setText] = useState("");
   const { addTask } = useTasksHook();
 
@@ -28,20 +34,23 @@ export default function TasksHandler() {
     <div id="tasksHandler">
       <div id="tasksFilters">
         <button
-          className={`filterBtn ${isActive === "all" ? "active" : ""}`}
-          onClick={() => setIsActive("all")}
+          type="button"
+          className={`filterBtn ${filter === "all" ? "active" : ""}`}
+          onClick={() => onFilterChange("all")}
         >
           All Tasks
         </button>
         <button
-          className={`filterBtn ${isActive === "todo" ? "active" : ""}`}
-          onClick={() => setIsActive("todo")}
+          type="button"
+          className={`filterBtn ${filter === "todo" ? "active" : ""}`}
+          onClick={() => onFilterChange("todo")}
         >
           To Complete
         </button>
         <button
-          className={`filterBtn ${isActive === "completed" ? "active" : ""}`}
-          onClick={() => setIsActive("completed")}
+          type="button"
+          className={`filterBtn ${filter === "completed" ? "active" : ""}`}
+          onClick={() => onFilterChange("completed")}
         >
           Completed
         </button>

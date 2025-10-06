@@ -1,3 +1,4 @@
+import { useMemo, useState } from "react";
 import Navbar from "../components/Navbar";
 import Statistics from "../components/Statistics";
 import TasksHandler from "../components/TasksHandler";
@@ -6,8 +7,18 @@ import type { Todo } from "../types/Todo";
 import useTasksHook from "../hooks/useTasksHook";
 import TaskItem from "../components/TaskItem";
 
+type Filter = "all" | "todo" | "completed";
+
 export default function MainPage() {
   const { tasks, loading, updateTask, deleteTask, error } = useTasksHook();
+
+  const [filter, setFilter] = useState<Filter>("all");
+
+  const filteredTasks = useMemo(() => {
+    if (filter === "todo") return tasks.filter(t => t.status !== "completed");
+    if (filter === "completed") return tasks.filter(t => t.status === "completed");
+    return tasks;
+  }, [tasks, filter]);
 
   const handleDelete = (deleted: Todo) => {
     deleteTask(deleted.id).catch((e) => console.error("deleteTask error:", e));
@@ -25,17 +36,18 @@ export default function MainPage() {
       <Navbar />
       <div id="tasksMenu">
         <Statistics todos={tasks} />
-        <TasksHandler />
+
+        <TasksHandler filter={filter} onFilterChange={setFilter} />
 
         {loading && <p id="noListStatement">Loading…</p>}
         {!loading && error && <p id="noListStatement">Error: {error}</p>}
 
         {!loading && !error && (
-          tasks.length < 1 ? (
+          filteredTasks.length < 1 ? (
             <p id="noListStatement">You don’t have any items in the list yet.</p>
           ) : (
             <ul>
-              {tasks.map((todo) => (
+              {filteredTasks.map((todo) => (
                 <TaskItem
                   key={todo.id}
                   todo={todo}

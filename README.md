@@ -13,6 +13,12 @@ This is a **collaborative project** developed and maintained by:
 - [JAAC2104](https://github.com/JAAC2104)  
 - [darae1225](https://github.com/darae1225)  
 
+[Live Demo](https://blue-todo.vercel.app/)
+
+Test account if you want to try it out:
+email: test1@test.com
+password: 123456a
+
 ---
 
 ## 🚀 Technologies Used

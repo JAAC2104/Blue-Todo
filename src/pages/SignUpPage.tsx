@@ -68,7 +68,7 @@ export default function SignUpPage() {
         <button disabled={loading} type="submit" id="loginBtn">Sign Up</button>
 
         <p className="login-demo-statement">
-          <p>Already have an account? <NavLink to='/login'>Log In</NavLink></p>
+            Already have an account? <NavLink to="/login">Log In</NavLink>
         </p>
       </form>
     </div>

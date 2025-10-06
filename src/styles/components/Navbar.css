@@ -1,69 +1,192 @@
 .navbar{
-    width: 70%;
-    background-color: #12a6d8;
-    margin: 20px auto;
-    padding: 20px;
-    border: solid 2px #d1f8ff;
-    border-radius: 12px;
-    position: sticky;
-    top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
-    box-shadow: 2px 2px 4px #252525;
+  width: min(100% - 32px, 1100px);
+  background-color: #12a6d8;
+  margin: 20px auto;
+  padding: 20px;
+  border: solid 2px #d1f8ff;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  box-shadow: 2px 2px 4px #252525;
+
+  flex-wrap: wrap;
+  gap: 12px;
+  box-sizing: border-box;
 }
 
 header{
-    font-size: 1.5rem;
-    font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 nav{
-    display: flex;
-    gap: 2rem;
-    align-items: center;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  min-width: 0;
 }
 
 nav span{
-    font-size: 1.2rem;
+  font-size: 1.2rem;
+  white-space: nowrap;
 }
 
 nav .userInfo{
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex: 0 0 auto;
 }
 
 nav #userProfileBtn{
-    border: none;
-    border-radius: 100%;
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #00b4d8;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  border: none;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #00b4d8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 nav #userProfileBtn:hover{
-    cursor: pointer;
-    box-shadow: 2px 2px 6px #6e6e6e;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px #6e6e6e;
 }
 
 nav .logInBtn{
-    border-radius: 10px;
-    border: solid 1px #d1f8ff;
-    background-color: #45d1ff;
-    font-size: 1rem;
-    padding: 10px;
-    color: #fff;
-    text-decoration: none;
+  border-radius: 10px;
+  border: solid 1px #d1f8ff;
+  background-color: #45d1ff;
+  font-size: 1rem;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  flex: 0 0 auto;
 }
 
 nav .logInBtn:hover{
-    cursor: pointer;
-    box-shadow: 2px 2px 6px #6e6e6e;
+  cursor: pointer;
+  box-shadow: 2px 2px 6px #6e6e6e;
+}
+
+@media (max-width: 1200px){
+  .navbar{
+    width: min(100% - 24px, 1000px);
+    gap: 10px;
+  }
+  nav{ gap: 1.25rem; }
+}
+
+@media (max-width: 900px){
+  .navbar{
+    width: min(100% - 20px, 900px);
+    padding: 16px 18px;
+    gap: 10px;
+  }
+
+  header{
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  nav{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    overflow: visible;
+  }
+
+  nav .userInfo{
+    order: 1;               
+    width: 100%;
+    max-width: 640px;      
+    margin-inline: auto;  
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "profile name"
+      "logout  logout";
+    column-gap: 10px;
+    row-gap: 8px;
+    align-items: center;
+    justify-items: center;
+    text-align: center;    
+  }
+
+  nav #userProfileBtn{ grid-area: profile; }
+  nav .userInfo span{
+    grid-area: name;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .logoutBtn, #logoutBtn{
+    grid-area: logout;
+    width: auto;
+    max-width: 240px;
+    justify-self: center;
+    text-align: center;
+  }
+
+  nav .userInfo .logInBtn{
+    grid-area: logout;
+    width: auto;
+    max-width: 240px;
+    justify-self: center;
+    text-align: center;
+  }
+
+  nav .logInBtn{
+    order: 2;
+    width: auto;
+    max-width: 240px;
+    align-self: center;
+    text-align: center;
+  }
+
+  nav > .logoutBtn,
+  nav > #logoutBtn{
+    order: 2;
+    width: auto;
+    max-width: 240px;
+    align-self: center;
+    text-align: center;
+  }
+
+  nav #userProfileBtn{
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 420px){
+  .navbar{
+    padding: 12px 12px;
+    gap: 8px;
+  }
+  nav{ gap: 10px; }
+
+  nav .userInfo{
+    max-width: 520px;
+    row-gap: 6px;
+  }
+
+  nav .logInBtn,
+  .logoutBtn, #logoutBtn{
+    max-width: 200px;
+    padding: 8px 10px;
+  }
 }

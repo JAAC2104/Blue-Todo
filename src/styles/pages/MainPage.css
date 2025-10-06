@@ -1,20 +1,52 @@
 body {
   background-color: #0370aa;
+  margin: 0;
+  padding: 0;
 }
 
 #tasksMenu {
   background-color: #fff;
-  max-width: 95%;
-  margin: 0 auto;
-  padding: 10px;
-  border-radius: 20px;
+  width: min(100% - 32px, 1100px);
+  margin: 12px auto;
+  padding: clamp(10px, 2.5vw, 24px);
+  border-radius: clamp(14px, 2vw, 20px);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: clamp(12px, 2.5vw, 24px);
   box-shadow: 2px 2px 10px #242424;
+  box-sizing: border-box;
 }
 
 #noListStatement {
   text-align: center;
-  margin: 3rem 0;
+  margin: clamp(1.25rem, 6vh, 3rem) 0;
+}
+
+@media (max-width: 900px) {
+  #tasksMenu {
+    width: min(100% - 24px, 820px);
+    padding: clamp(12px, 3vw, 20px);
+  }
+}
+
+@media (max-width: 680px) {
+  #tasksMenu {
+    width: min(100% - 16px, 560px);
+    padding: 14px;
+    gap: 14px;
+    box-shadow: 1px 1px 8px #242424;
+  }
+}
+
+@media (max-width: 420px) {
+  #tasksMenu {
+    width: calc(100% - 12px);
+    margin: 8px auto;
+    padding: 12px;
+    gap: 12px;
+  }
+
+  #noListStatement {
+    margin: 1.5rem 0;
+  }
 }

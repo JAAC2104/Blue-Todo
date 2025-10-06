@@ -3,11 +3,15 @@
   justify-content: space-between;
   align-items: center;
   padding-inline: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 #tasksFilters {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .filterBtn {
@@ -18,6 +22,7 @@
   font-size: 1rem;
   border-radius: 10px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .filterBtn:hover {
@@ -38,11 +43,19 @@
   align-items: center;
   flex-direction: row;
   gap: 10px;
+  flex: 1 1 480px;
+  justify-content: flex-end;
 }
 
 #taskNameInput {
   padding: 15px;
   font-size: 1rem;
+  max-width: 360px;
+  max-height: 50px;  
+  flex: 1 1 260px;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #createTaskBtn {
@@ -53,8 +66,84 @@
   font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
+  flex: 0 0 auto;
 }
 
 #createTaskBtn:hover {
   background-color: #12a6d8;
+}
+
+@media (max-width: 900px) {
+  #taskForm {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  #tasksHandler {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #taskForm {
+    order: 1;
+    width: 100%;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+
+  #tasksFilters {
+    order: 2;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  #taskNameInput {
+    padding: 12px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  #taskForm {
+    gap: 8px;
+  }
+
+  #taskNameInput {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  #tasksFilters {
+    gap: 10px;
+    overflow-x: auto;              
+    white-space: nowrap;     
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #tasksFilters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filterBtn {
+    flex: 0 0 auto;
+  }
+
+  #taskForm {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #taskNameInput {
+    max-width: 280px;
+    align-self: center;
+    width: 100%;
+  }
+
+  #createTaskBtn {
+    width: 100%;
+  }
 }

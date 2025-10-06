@@ -3,21 +3,26 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 100dvh;
+  padding: clamp(12px, 4vw, 32px);
+  box-sizing: border-box;
+  position: relative;
 }
 
 h1 {
   color: #0370aa;
   text-align: center;
+  margin: clamp(8px, 3vh, 20px) 0;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  width: 450px;
+  width: min(100% - 32px, 450px);
   background: white;
   border-radius: 12px;
-  padding: 2rem;
+  padding: clamp(16px, 4vw, 2rem);
+  box-sizing: border-box;
 }
 
 .form-section {
@@ -34,6 +39,8 @@ input {
   padding: 5px;
   border-radius: 5px;
   border: 1px solid lightgrey;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #loginBtn {
@@ -58,9 +65,13 @@ input {
   text-align: center;
 }
 
-.returnBtn{
-  margin: 20px;
-  position: absolute;
+
+.returnBtn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 1000;
+
   background-color: #12a6d8;
   border: solid 1px #d1f8ff;
   width: 50px;
@@ -71,23 +82,75 @@ input {
   border-radius: 100%;
 }
 
-.returnBtn:hover{
+.returnBtn:hover {
   cursor: pointer;
   box-shadow: 2px 2px 4px #242424;
 }
 
-#returnArrow{
+#returnArrow {
   height: 25px;
   width: 25px;
 }
 
-#errorText{
+#errorText {
   background: #fc6767;
-  width: 70%;
+  width: min(100% - 32px, 560px);
   margin: 10px auto;
   text-align: center;
   padding: 10px;
   border-radius: 10px;
   color: #fff;
   border: solid 2px #ff2323;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  form {
+    width: min(100% - 28px, 520px);
+  }
+}
+
+@media (max-width: 680px) {
+  .login-container {
+    padding: 16px;
+  }
+
+  form {
+    width: min(100% - 24px, 420px);
+    padding: 16px;
+  }
+
+  input {
+    padding: 8px;
+  }
+
+  .returnBtn {
+    top: 12px;
+    left: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  form {
+    width: calc(100% - 16px);
+    padding: 12px;
+  }
+
+  #loginBtn {
+    font-size: 1.1rem;
+  }
+
+  .returnBtn {
+    width: 46px;
+    height: 46px;
+  }
+
+  #returnArrow {
+    width: 22px;
+    height: 22px;
+  }
+
+  #errorText {
+    width: calc(100% - 16px);
+  }
 }

@@ -6,14 +6,20 @@
   margin: 5px;
   padding: 5px;
   border-radius: 7px;
+
+  flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
 .statistics {
-  width: 100%;
   height: auto;
   background-color: #0370aa;
   margin: 7px;
   border-radius: 6px;
+  flex: 1 1 260px;
+  min-width: 220px;
+  max-width: 420px; 
+  box-sizing: border-box;
 }
 
 .statistic-box {
@@ -23,9 +29,34 @@
   gap: 5px;
   margin: 10px;
   color: white;
+  text-align: center;
+  min-width: 0;   
 }
 
 .statistic-number {
   font-size: 2rem;
   font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .statistic-container {
+    gap: 24px;
+  }
+  .statistics {
+    flex: 1 1 45%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .statistic-container {
+    justify-content: center;
+    gap: 16px;
+    padding: 8px;
+  }
+  .statistics {
+    flex: 1 1 100%;
+    min-width: 0;
+    margin: 4px 0;
+  }
 }

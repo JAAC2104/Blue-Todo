@@ -16,8 +16,8 @@ This is a **collaborative project** developed and maintained by:
 [Live Demo](https://blue-todo.vercel.app/)
 
 Test account if you want to try it out
-email: test1@test.com
-password: 123456a
+- email: test1@test.com
+- password: 123456a
 
 ---
 
